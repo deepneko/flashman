@@ -1,8 +1,7 @@
 # Flashman 
 
-This is a gem for recording your terminal activity on a gif file.
+This is a gem for recording your terminal activity on a gif file.  
 You can also record any other window of your application.
-
 **The gem works only for MacOS X!**
 
 ![out](https://github.com/deepneko/flashman/blob/master/img/flashman.gif "out")
