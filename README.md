@@ -18,7 +18,8 @@ Then, please install flashman from rubygems.
 
 ## Usage
 
-Start to record your Terminal.
+Start to record your Terminal. You can specify the name of the application with -w.  
+Without -w option, it records 'Terminal' by default.
 
     $ flashman
 
