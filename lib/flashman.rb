@@ -41,8 +41,8 @@ module Flashman
 
       @output = output
       @interval = interval
-      @delay = 100 * @interval / speed
-      @times = times
+      @delay = (100 * @interval / speed).to_i
+      @times = times.to_i
       @finish_trap = false
     end
 
