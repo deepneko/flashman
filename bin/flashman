@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require 'flashman'
+require 'slop'
+
+opts = Slop.parse do |o|
+  o.string '-w', '--window', default: 'Terminal'
+  o.float '-i', '--interval', default: 1
+  o.string '-o', '--output', default: 'out.gif'
+  o.integer '-s', '--speed', default: 1
+  o.integer '-t', '--times', default: 0
+  o.bool '-h', '--help', ''
+end
+
+if opts[:h]
+  Flashman.usage
+  exit 0
+end
+
+flashman = Flashman.init(opts[:window], opts[:output], opts[:interval], opts[:speed], opts[:times])
+flashman.run

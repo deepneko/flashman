@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+pid_file = File.join(Dir.home, '.flashman/flashman.pid')
+unless File.exist?(pid_file)
+  puts "flashman isn't running."
+  exit 1
+end
+pid = File.open(pid_file).first.to_i
+
+stop_pid = File.join(Dir.home, '.flashman/flashstop.pid')
+open(stop_pid, 'w') {|f| f << Process.pid}
+
+finish_trap = false
+Signal.trap(:TERM) {finish_trap = true}
+
+Process.kill("TERM", pid)
+
+puts "Waiting for flashman to be done..."
+loop do
+  break if finish_trap 
+  sleep 1
+end
+
+File.unlink stop_pid
+puts "Done."
