@@ -56,7 +56,7 @@ module Flashman
         loop do
           break if @finish_trap
           file = "#{@work_dir}/#{i.to_s.rjust(6, "0")}"
-          `screencapture -t gif -o -l #{@windowid} #{file}.gif 2>&1 >/dev/null`
+          `screencapture -t gif -o -l #{@windowid} -x #{file}.gif 2>&1 >/dev/null`
           sleep(@interval)
           i += 1
         end
